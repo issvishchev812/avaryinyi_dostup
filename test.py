@@ -4,18 +4,14 @@ import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here'
-id_kap = 'admin'
-password_kap = 'admin'
 
 
-@app.route('/login', methods=['GET', 'POST'])
+
+@app.route('/distribution', methods=['GET', 'POST'])
 def index():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.id_kap.data == id_kap and form.password_kap.data == password_kap:
-            return render_template('auto_answer.html', form=form, id_kap=id_kap, password_kap=password_kap)
-        return render_template('login.html', form=form, err='Данные не совпадают')
-    return render_template('login.html', form=form, err='')
+    astronauts = ['Риддли Скотт', 'Энди Уир', 'Марк Уотни', 'Венката Капур', 'Тедди Сандрес', 'Шон Бин']
+    return render_template('distribution.html', arr=astronauts)
+
 
 
 
