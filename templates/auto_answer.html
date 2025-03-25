@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <dl>
+                <dt>Id астронавта:</dt>
+                <dd>{{ form.id_ast.data }}</dd>
+
+                <dt>Пароль астронавта:</dt>
+                <dd>{{ form.password_ast.data }}</dd>
+
+                <dt>Id капитана:</dt>
+                <dd>{{ form.id_kap.data }}</dd>
+
+                <dt>Пароль капитана:</dt>
+                <dd>{{ form.password_kap.data }}</dd>
+
+        </dl>
+{% endblock %}

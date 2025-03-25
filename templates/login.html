@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Заполнение Анкеты</h1>
+    <form method="POST" action="{{ url_for('index') }}">
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>Персональная Информация</legend>
+            {{ form.id_ast.label }}<br>
+            {{ form.id_ast(size=32) }}<br>
+            {% for error in form.id_ast.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.password_ast.label }}<br>
+            {{ form.password_ast(size=32) }}<br>
+            {% for error in form.password_ast.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.id_kap.label }}<br>
+            {{ form.id_kap(size=32) }}<br>
+            {% for error in form.id_kap.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+
+            {{ form.password_kap.label }}<br>
+            {{ form.password_kap(size=32) }}<br>
+            {% for error in form.password_kap.errors %}
+                <span style="color: red;">[{{ error }}]</span><br>
+            {% endfor %}
+        </fieldset>
+        <input type="submit" value="Отправить">
+    </form>
+{% if err != '' %}
+    <span style="color: red;">[{{ err }}]</span><br>
+{% endif %}
+{% endblock %}
