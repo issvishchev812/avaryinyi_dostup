@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Заполнение Анкеты</h1>
+    <div class="ct">
+        <img class="img" src="static/img/emblema.png" alt="Эмблема миссии">
+        <h1>Аварийный доступ</h1>
+    </div>
     <form method="POST" action="{{ url_for('index') }}">
         {{ form.csrf_token }}
         <fieldset>
@@ -30,7 +33,7 @@
                 <span style="color: red;">[{{ error }}]</span><br>
             {% endfor %}
         </fieldset>
-        <input type="submit" value="Отправить">
+        <input type="submit" value="Доступ">
     </form>
 {% if err != '' %}
     <span style="color: red;">[{{ err }}]</span><br>
